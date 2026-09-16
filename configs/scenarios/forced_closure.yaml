@@ -1,0 +1,11 @@
+# What-if: close one specific depot and keep everything else as-is.
+# Its customers are re-assigned and its stock is transferred out.
+extends: ../base.yaml
+name: forced_closure
+description: Close depot_02; all other existing depots stay open.
+
+constraints:
+  forced_status:
+    enabled: true
+    must_close: [depot_02, cand_01, cand_02]
+    others: open

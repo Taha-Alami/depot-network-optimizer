@@ -1,0 +1,14 @@
+# Free redesign of the existing network: the model decides which depots to
+# keep or close (closing costs apply). No new sites.
+extends: ../base.yaml
+name: network_redesign
+description: Keep/close decisions on existing depots, candidates excluded.
+
+constraints:
+  open_depot_count:
+    enabled: true
+    min_open: 3
+    max_new_sites: 0
+  regional_coverage:
+    enabled: true
+    min_open_per_region: 1

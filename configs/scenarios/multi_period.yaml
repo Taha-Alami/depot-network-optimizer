@@ -1,0 +1,21 @@
+# Operational view: month-by-month rolling horizon with daily stock balance,
+# soft capacity (overflow bought in batches) and one depot without a capacity
+# limit. Ending stock of each month is the opening stock of the next.
+extends: ../base.yaml
+name: multi_period
+description: Rolling monthly horizon on the as-is network with soft capacity.
+
+horizon:
+  mode: rolling
+  window: M
+
+constraints:
+  capacity:
+    mode: soft
+    expansion_batch_size: 10
+    overrides:
+      depot_01: null
+  forced_status:
+    enabled: true
+    must_close: [cand_01, cand_02]
+    others: open

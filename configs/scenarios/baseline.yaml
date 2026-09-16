@@ -1,0 +1,11 @@
+# As-is network: every existing depot stays open, no candidate site is opened.
+# Serves as the reference cost for all what-if scenarios.
+extends: ../base.yaml
+name: baseline
+description: Current footprint, assignments re-optimised.
+
+constraints:
+  forced_status:
+    enabled: true
+    must_close: [cand_01, cand_02]
+    others: open

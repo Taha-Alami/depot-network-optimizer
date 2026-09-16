@@ -1,0 +1,19 @@
+# Strategic design including candidate sites, with a service-level limit
+# and a minimum presence in every region.
+extends: ../base.yaml
+name: greenfield
+description: Keep/close existing depots and optionally open candidates under service rules.
+
+constraints:
+  max_service_distance:
+    enabled: true
+    max_distance_km: 300
+    distance_basis: road
+  open_depot_count:
+    enabled: true
+    min_open: 3
+    max_open: 6
+    max_new_sites: 1
+  regional_coverage:
+    enabled: true
+    min_open_per_region: 1
